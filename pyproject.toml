@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "gridappsd"
+version = "0.1.0"
+description = "gridappsd"
+authors = ["xcosmos6 <dangwh@hotmail.com>"]
+license = "Apache License 2.0"
+readme = "README.md"
+repository = "https://github.com/xcosmos6/gridappsd"
+homepage = "https://github.com/xcosmos6/gridappsd"
+keywords = []
+packages = [ { include = "gridappsd", from = "src" } ]
+classifiers = [
+    "Programming Language :: Python :: 3 :: Only",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Other Audience",
+    "License :: OSI Approved :: Apache Software License"
+]
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+volttron = "^10.0.3a16"
+
+[tool.poetry.dev-dependencies]
+# formatting, quality, tests
+pytest = "^6.2.5"
+mock = "^4.0.3"
+pre-commit = "^2.17.0"
+yapf = "^0.32.0"
+toml = "^0.10.2"
+isort = "^5.10.1"
+safety = "^1.10.3"
+mypy = "^0.942"
+coverage = "^6.3.2"
+Sphinx = "^6.0.0"
+sphinx-rtd-theme = "^1.2.0"
+volttron-testing = "^0.4.0rc3"
+
+[tool.yapfignore]
+ignore_patterns = [
+    ".venv/**",
+    ".pytest_cache/**",
+    "dist/**",
+    "docs/**"
+]
+
+[tool.yapf]
+based_on_style = "pep8"
+spaces_before_comment = 4
+column_limit = 99
+split_before_logical_operator = true
+
+[tool.poetry.scripts]
+gridappsd = "gridappsd.agent:main"
+
+[build-system]
+requires = ["poetry-core>=1.2.0"]
+build-backend = "poetry.core.masonry.api"
